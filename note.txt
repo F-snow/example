@@ -3,12 +3,40 @@
 在Git bash上，开始设置username和email，因为github每次commit都会记录他们
 	
 $ git config --global user.name  "F-Snow"//你的GitHub登陆名
-$ git config --global user.email "1101794255@qq.com"//你的GitHub注册邮箱
+$ git config --global user.email "110@qq.com"//你的GitHub注册邮箱
 
 在本地仓库的目录下打开git bash，不然默认在c盘
 
 接下来就是把本地仓库传到github上去，之前在GitHub上建好一个新的仓库
  git remote add origin git@github.com:F-snow/example.git   
- //关联一个远程库命令， git@github.com:flora0103/example.git   这个是自己远程库
+ //关联一个远程库命令
 git push -u origin master   
  //关联后,第一次推送master分支的所有内容命令，此后，每次本地提交后，就可以使用命令git push origin master推送最新修改
+
+注意 本地库 gitfiles.git 中需要添加文件 ，提交文件 ，最后才是推送 
+
+ $ git add note.txt
+ $ git commit -m "git使用笔记"
+
+git push -u origin master  依然失败，需要私钥
+
+在命令行中输入
+ssh-keygen -t rsa -C  110@qq.com 一路回车
+
+
+它会生成一个 id _rsa.pub 文件，看上面截图，它有 保存路径的地址说明，按照保存路径找到文件，打开，复制里面的内容
+
+登录到githob，点击右上角 小三角
+点击settings》》sshkey》》new ssh key（右上）
+
+在页面随便填入一个title，然后key里面，把刚才复制的那个文本信息拷贝进去
+点击add ssh key ，没有提示错误，就ok了。如果出现问题，可能是你的key没有复制完成导致
+
+
+验证是否成功，在git bash里输入下面的命令
+
+	
+$ ssh -T git@github.com
+输入yes
+
+ 
