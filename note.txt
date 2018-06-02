@@ -1,0 +1,14 @@
+廖雪峰git上直接下载安装，使用图形化界面，操作管理文件
+
+在Git bash上，开始设置username和email，因为github每次commit都会记录他们
+	
+$ git config --global user.name  "F-Snow"//你的GitHub登陆名
+$ git config --global user.email "1101794255@qq.com"//你的GitHub注册邮箱
+
+在本地仓库的目录下打开git bash，不然默认在c盘
+
+接下来就是把本地仓库传到github上去，之前在GitHub上建好一个新的仓库
+ git remote add origin git@github.com:F-snow/example.git   
+ //关联一个远程库命令， git@github.com:flora0103/example.git   这个是自己远程库
+git push -u origin master   
+ //关联后,第一次推送master分支的所有内容命令，此后，每次本地提交后，就可以使用命令git push origin master推送最新修改
